@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: cyan;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px); /* Account for the header height */
+            text-align: center;
+        }
+
+        .tabs {
+            margin-bottom: 20px;
+        }
+
+        .tabs button {
+            background: linear-gradient(135deg, #6dd5fa, #2980b9);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .tabs button:hover {
+            background: linear-gradient(135deg, #85e7ff, #3498db);
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tabs button:active {
+            background: linear-gradient(135deg, #56c1d8, #207ab6);
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            display: none;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Hi, this is how I gather my unspoken feelings, through song lyrics. They speak the words I can't say and give voice to emotions I struggle to express to you.   </header>
+    <div class="container">
+        <div class="tabs">
+            <button onclick="showMessage('message1')">Won't Go Home Without You</button>
+            <button onclick="showMessage('message2')">Synesthesia</button>
+            <button onclick="showMessage('message3')">Ghost</button>
+            <button onclick="showMessage('message4')">Too Good To Say Goodbye</button>
+            <button onclick="showMessage('message5')">My message for you</button>
+        </div>
+        <div id="message1" class="message">It's not over tonight, Just give me one more chance to make it right, I may not make it through the night, I won't go home without you.</div>
+        <div id="message2" class="message">Because I'm waiting for you, Waiting for this dream to come true, Just to be with you, And if I die, Remember these lines, I'm always here, guarding your life.</div>
+        <div id="message3" class="message">That if I can't be close to you, I'll settle for the ghost of you, I miss you more than life, And if you can't be next to me, Your memory is ecstasy, I miss you more than life</div>
+        <div id="message4" class="message">So tell me, why, why can't we try and start again?, This can't be how our story ends, You're more than my girl, you're my best friend, Tell me you remember when, I was your man and you were my girl, It was you and me against the world.</div>
+        <div id="message5" class="message">Hi Jules, I want to sincerely apologize once again. I’m really sorry for hurting your feelings with my impulsive behavior. That was never my intention, and I deeply regret the way my actions affected you. I’ll work on being more mindful moving forward because you mean a lot to me.</div>
+    </div>
+
+    <script>
+        function showMessage(id) {
+            const messages = document.querySelectorAll('.message');
+            messages.forEach(message => message.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
